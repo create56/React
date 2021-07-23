@@ -1,14 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import JsxTest from "./test/JsxTest";
 
 function App() {
-  
-  let num = 10;
-  return (
-    <div>
-      <h1>Hello World{num}</h1>
-    </div>
-  );
+  // 1. JSX는 return시에 하나의 dom만 리턴할수 있다.
+  return <div>
+    <JsxTest/>
+      </div>;
 }
 
 export default App;
