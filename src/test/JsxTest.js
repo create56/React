@@ -54,4 +54,6 @@ function JsxTest() {
     );
 }
  // 2. export는 자바의 public과 같다.
+ // default가 없기 떄문에 {} 중괄호가 필요함
+export {num}; 
 export default JsxTest;
