@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledNavBar = styled.div`
   border: 1px solid black;
+  font-size: 20px;
 `;
 const StyledMenu = styled.ul`
   display: flex;

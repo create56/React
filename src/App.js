@@ -19,16 +19,29 @@ const StyledRightBox = styled.div`
 `;
 
 function App() {
-  console.log(getData());
+  console.log('App()');
 
   const [posts, setPosts] = useState(getData());
+
+  function addPost() {
+    // 상태변경이란?
+    // 값을 변경하고 함수를 재실행하는것
+    setPosts([
+      ...posts,
+      {
+        id: 6,
+        title: '리엑트 전개 연산자',
+        content: '전개 연산자는 흩뿌리는 연산자',
+      },
+    ]);
+  }
 
   return (
     <div>
       <NavBar />
       <StyledBox>
         <StyledRightBox>
-          <MyButton text={'추가'} color={'blue'} />
+          <button onClick={() => addPost()}>추가</button>
         </StyledRightBox>
         {posts.map((post) => (
           // post => 키값
