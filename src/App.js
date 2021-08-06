@@ -1,26 +1,41 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Center from './test/Center';
+import MyButton from './components/MyButton';
+import NavBar from './components/NavBar';
+import PostItem from './components/PostItem';
+import { getData } from './provider/Post';
 
-const StyleContainer = styled.div`
-  margin: 0 auto;
-  width: 80%;
+const StyledBox = styled.div`
+  width: 70%;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid black;
 `;
 
-const StyleH1 = styled.h1`
-  color: bule;
+const StyledRightBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
 `;
 
 function App() {
-  const [data, setData] = useState([1, 2, 3, 4]);
+  console.log(getData());
+
+  const [posts, setPosts] = useState(getData());
 
   return (
-    <StyleContainer>
-      <StyleH1>스타일 컴포넌트 디자인 해보기</StyleH1>
-      {data.map((num) => (
-        <Center num={num} />
-      ))}
-    </StyleContainer>
+    <div>
+      <NavBar />
+      <StyledBox>
+        <StyledRightBox>
+          <MyButton text={'추가'} color={'blue'} />
+        </StyledRightBox>
+        {posts.map((post) => (
+          // post => 키값
+          <PostItem post={post} />
+        ))}
+      </StyledBox>
+    </div>
   );
 }
 
